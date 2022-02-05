@@ -1,10 +1,10 @@
 # Spring Boot MVC Recipe Web Application
 
-### Team Members:
-- Stephen Davis - 101294116
-- Michael Sirna - 101278670
-- Aleksandr Kudin - 101258693
-- Matthew Campbell - 101289518
+### Dev Team Members:
+- Stephen Davis
+- Michael Sirna
+- Aleksandr Kudin
+- Matthew Campbell
 
 ### Stack:
 - Spring Data JPA - module implementation of data access layers
