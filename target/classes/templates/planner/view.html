@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<header>
+    <nav th:replace="fragments/navbar :: nav"></nav>
+</header>
+<!--Main layout-->
+<main>
+    <div class="container">
+
+        <!-- Meal Planner Header -->
+        <div class="row">
+            <div class="mt-4 mb-3 p-3 text-center bg-light weirdBlue rounded">
+                <h1>My Meal Planner</h1>
+                <a th:if= "${meals != null && !meals.empty}" class="btn btn-outline-dark" th:href="@{/planner/create}">Add Meal</a>
+            </div>
+        </div>
+
+        <div th:if= "${meals == null || meals.empty}" class="mb-3 text-center">
+            <h3 class="mb-2 text-center">Looks like you haven't made any meals yet!</h3>
+            <h4 class="mb-3 text-center">Click the button below to make a new meal!</h4>
+            <a th:href="@{/planner/create}" class="col-md-3 btn btn-outline-primary text-center">Add Meal</a>
+        </div>
+        <div th:if= "${meals != null && !meals.empty}" class="meal" th:each="meal : ${meals}">
+            <div class="row row-striped mb-5">
+                <div class="col-2 text-end">
+                    <h1 class="display-4"><span class="badge badge-secondary" th:text="${meal.getDay()}"></span></h1>
+                    <h2 class="text-uppercase" th:text="${meal.getMonth()}"></h2>
+                </div>
+                <div class="col-10">
+                    <h3 class="text-uppercase text-decoration-underline"><strong th:text="${meal.mealTitle}"></strong></h3>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><i class="far fa-calendar"></i> <span th:text="${meal.getWeekDay()}"></span></li>
+                    </ul>
+                    <p th:text="${meal.mealComment}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!--Main layout-->
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

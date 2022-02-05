@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<header>
+    <nav th:replace="fragments/navbar :: nav"></nav>
+</header>
+<!--Main layout-->
+<main>
+    <div class="container">
+
+        <!-- Recipes Header -->
+        <div class="row">
+            <div class="mt-4 mb-3 p-3 text-center bg-light weirdBlue rounded">
+                <h1>Recipes</h1>
+                <a th:if= "${recipes != null && !recipes.empty}" class="btn btn-outline-dark" th:href="@{/recipes/create}">Add Recipe</a>
+            </div>
+        </div>
+
+        <!-- PAGE CONTENT STARTS HERE -->
+        <div class="row recipeCards">
+            <!-- SECTION TITLE HERE -->
+            <div th:if= "${recipes == null || recipes.empty}" class="mb-3 text-center">
+                <h3 class="mb-2 text-center">Looks like there are no recipes in the database yet!</h3>
+                <h4 class="mb-3 text-center">Click the button below to make a new recipe!</h4>
+                <a th:href="@{/recipes/create}" class="col-md-3 btn btn-outline-primary text-center">Add Recipe</a>
+            </div>
+            <div th:if= "${recipes != null && !recipes.empty}" class="mb-3">
+                <h4 class="mb-3 text-center">What to cook this week</h4>
+            </div>
+            <!-- SECTION CONTENT HERE -->
+            <div th:if= "${recipes != null}" th:replace="fragments/recipeList :: div"></div>
+        </div>
+        <!-- PAGE CONTENT ENDS HERE -->
+    </div>
+</main>
+<!--Main layout-->
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

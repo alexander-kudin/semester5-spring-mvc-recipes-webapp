@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<header>
+    <nav th:replace="fragments/navbar :: nav"></nav>
+</header>
+<!--Main layout-->
+<main>
+    <div class="container">
+
+        <!-- Create New Meal Header -->
+        <div class="row">
+            <div class="mt-4 mb-3 p-3 text-center bg-light weirdBlue rounded">
+                <h1>Create New Meal</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="shadow-5 p-4">
+                <form method="post" enctype="multipart/form-data">
+                    <!-- Meal Title -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" id="title" name="title" class="form-control" required>
+                                <label class="form-label ml-0" for="title">Meal Title</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Meal Comment -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <textarea class="form-control" id="comment" name="comment" rows="2" spellcheck="false"></textarea>
+                                <label class="form-label ml-0" for="comment">Meal Comment</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Meal Date -->
+                    <div class="form-outline mb-4">
+                        <input name="date" id="date" type="date" class="form-control" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required />
+                        <label class="form-label" for="date">Date</label>
+                    </div>
+
+                    <!-- Add Meal Button -->
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Add Meal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<!--Main layout-->
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

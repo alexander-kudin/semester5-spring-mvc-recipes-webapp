@@ -1,0 +1,28 @@
+<div th:each="recipe : ${recipes}" class="col-sm-3">
+  <div class="card h-100">
+    <div class="bg-image hover-overlay ripple rounded-4" data-mdb-ripple-color="light">
+      <img src="/images/recipeImage.jpg" class="img-fluid">
+      <a th:href="@{/recipes/details(recipeID=${recipe.recipeID})}">
+        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+      </a>
+    </div>
+    <div class="card-body">
+      <h5 th:text="${recipe.recipeTitle}" class="card-title"></h5>
+      <div class="card-footer">
+        <div class="d-flex mb-3">
+          <img src="/images/user-avatar.jpg"
+               class="rounded-circle"
+               height="25"
+               alt=""
+               loading="lazy"
+          />
+          <div class="d-flex align-items-center w-100 ps-3">
+            <div class="w-100">
+              <h6 th:text="${recipe.getAuthorName()}" class="link-dark mb-0"></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

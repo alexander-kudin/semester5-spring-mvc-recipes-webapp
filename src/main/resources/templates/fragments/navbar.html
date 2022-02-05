@@ -1,0 +1,72 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light navColour">
+    <!-- Container wrapper -->
+    <div class="container">
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Navbar brand -->
+            <a class="navbar-brand mt-2 mt-lg-0" href="/">
+                <img src="/images/stonecutters.png" height="50" alt="Stonecutters Logo" loading="lazy" />
+            </a>
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownRecipes" role="button" data-mdb-toggle="dropdown" aria-expanded="false">Recipes</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownRecipes">
+                        <li><a class="dropdown-item" href="/recipes">View</a></li>
+                        <li><a class="dropdown-item" href="/recipes/search">Search</a></li>
+                        <li><a class="dropdown-item" href="/recipes/create">Create</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPlanner" role="button" data-mdb-toggle="dropdown" aria-expanded="false">Meal Planner</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownPlanner">
+                        <li><a class="dropdown-item" href="/planner">View</a></li>
+                        <li><a class="dropdown-item" href="/planner/create">Create</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEvents" role="button" data-mdb-toggle="dropdown" aria-expanded="false">Events</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownEvents">
+                        <li><a class="dropdown-item" href="/events">View</a></li>
+                        <li><a class="dropdown-item" href="/events/create">Create</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
+
+        <!-- Right elements -->
+        <div class="d-flex align-items-center">
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownProfile" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <div class="d-flex align-items-center w-100 ps-3">
+                                <div class="w-100">
+                                    <h6 class="link-dark mb-0"><span th:text="${#ctx.session.get('SPRING_SECURITY_CONTEXT').authentication.Principal.getUsername()}"></span> <i class="link-dark fas fa-user"></i></h6>
+                                </div>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownProfile">
+                            <li><a class="dropdown-item" href="/user/profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- Avatar -->
+        </div>
+        <!-- Right elements -->
+    </div>
+    <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->

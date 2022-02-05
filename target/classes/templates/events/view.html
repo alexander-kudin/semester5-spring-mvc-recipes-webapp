@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<header>
+    <nav th:replace="fragments/navbar :: nav"></nav>
+</header>
+<!--Main layout-->
+<main>
+    <div class="container">
+
+        <!-- My Events Header -->
+        <div class="row">
+            <div class="mt-4 mb-3 p-3 text-center bg-light weirdBlue rounded">
+                <h1>My Events</h1>
+                <a th:if= "${events != null && !events.empty}" class="btn btn-outline-dark" th:href="@{/events/create}">Add Event</a>
+            </div>
+        </div>
+
+        <div th:if= "${events == null || events.empty}" class="mb-3 text-center">
+            <h3 class="mb-2 text-center">Looks like you haven't made any events yet!</h3>
+            <h4 class="mb-3 text-center">Click the button below to make a new event!</h4>
+            <a th:href="@{/events/create}" class="col-md-3 btn btn-outline-primary text-center">Add Event</a>
+        </div>
+        <div th:if= "${events != null && !events.empty}" class="event" th:each="event : ${events}">
+            <div class="row row-striped mb-5">
+                <div class="col-2 text-end">
+                    <h1 class="display-4"><span class="badge badge-secondary" th:text="${event.getDay()}"></span></h1>
+                    <h2 class="text-uppercase" th:text="${event.getMonth()}"></h2>
+                </div>
+                <div class="col-10">
+                    <h3 class="text-uppercase text-decoration-underline">
+                        <strong th:text="${event.eventTitle}"></strong>
+                        <span><a style="margin-left: 5px; font-size: 15px" th:href="@{/events/update(eventId=${event.eventId})}">Edit</a></span>
+                        <span><a style="margin-left: 5px; font-size: 15px; color: red" th:href="@{/events/delete(eventId=${event.eventId})}">Delete</a></span>
+                    </h3>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><i class="far fa-calendar"></i> <span th:text="${event.getWeekDay()}"></span></li>
+                    </ul>
+                    <p th:text="${event.eventComment}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!--Main layout-->
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

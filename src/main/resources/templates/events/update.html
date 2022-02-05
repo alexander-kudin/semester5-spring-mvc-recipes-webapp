@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<header>
+    <nav th:replace="fragments/navbar :: nav"></nav>
+</header>
+<!--Main layout-->
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="p-5 text-center bg-light">
+                <!-- PAGE TITLE HERE -->
+                <h1>Update Event</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="shadow-5 p-4">
+                <form method="post" enctype="multipart/form-data">
+                    <!-- Event Title -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" id="title" th:value="${event.eventTitle}" name="title" class="form-control" required>
+                                <label class="form-label ml-0" for="title">Event Title</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event Comment -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <textarea class="form-control" th:value="${event.eventComment}" id="comment" name="comment" rows="2" spellcheck="false"></textarea>
+                                <label class="form-label ml-0" for="comment">Event Comment</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event Date -->
+                    <div class="form-outline mb-4">
+                        <input name="date" th:value="${event.date.toString()}" id="date" type="date" class="form-control" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required />
+                        <label class="form-label" for="date">Date</label>
+                    </div>
+
+                    <!-- Add Event Button -->
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Update Event</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<!--Main layout-->
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,225 @@
+.navColour {
+    background-color: #840600;
+}
+
+.linkColour, .nav-link, .link-dark {
+    color: #F7D25F !important;
+}
+
+.linkHover, .nav-link:hover, .link-dark:hover {
+    color: #BA910B !important;
+}
+
+body, main, .bg-white, .off-white{
+    background-color: #FAF9F6 !important;
+}
+
+.weirdBlue{
+    background-color: #9BB9BA !important;
+}
+
+h1, h2, h3, h4, h5, h6{
+    color:#000;
+}
+
+.recipeCards .card {
+    box-shadow: none !important;
+}
+.recipeCards .card-body, .card-footer{
+    padding: 1rem 0;
+    border-top: none;
+}
+
+.recipeCards .card-footer button{
+    border: solid #BBBBBB 0.05rem;
+}
+
+.recipeCards .bg-image{
+    height: 13.7rem;
+}
+
+.recipeCards .img-fluid{
+    height: 100%;
+    object-fit: cover;
+
+}
+
+#msg-intro {
+    /*background-image: url("/images/cutting-board-v1.jpg");*/
+    background-image: url("https://images.pexels.com/photos/349609/pexels-photo-349609.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080");
+    height: 100vh;
+}
+
+.profileBackground {
+    height: 125px;
+}
+
+.profilePicture {
+    margin-top: -80px;
+    width:30%;
+}
+
+.btn-outline-primary {
+    display:inline-block;
+    color:#1266f1;
+    text-align:center;
+    text-decoration:none;
+    vertical-align:middle;
+    cursor:pointer;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    background-color:transparent;
+    border:.125rem solid #1266f1;
+    padding:.375rem .75rem;
+    border-radius:.25rem;
+    -webkit-transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out
+}
+
+.btn-outline-primary:hover {
+    color: #FFF;
+    background-color: #1266f1;
+    border-color: #1266f1
+}
+
+btn-check:active + .btn-outline-primary, .btn-check:checked + .btn-outline-primary, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show, .btn-outline-primary:active {
+    color: #FFF;
+    background-color: #1266f1;
+    border-color: #1266f1
+}
+
+.btn-outline-primary.disabled, .btn-outline-primary:disabled {
+    background-color: transparent;
+    border-color: #1266f1
+}
+
+.btn-outline-danger {
+    display:inline-block;
+    color:#f93154;
+    text-align:center;
+    text-decoration:none;
+    vertical-align:middle;
+    cursor:pointer;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    background-color:transparent;
+    border:.125rem solid #f93154;
+    padding:.375rem .75rem;
+    border-radius:.25rem;
+    -webkit-transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out
+}
+
+.btn-outline-danger:hover {
+    color: #FFF;
+    background-color: #f93154;
+    border-color: #f93154
+}
+
+btn-check:active + .btn-outline-danger, .btn-check:checked + .btn-outline-danger, .btn-outline-danger.active, .btn-outline-danger.dropdown-toggle.show, .btn-outline-danger:active {
+    color: #FFF;
+    background-color: #f93154;
+    border-color: #f93154
+}
+
+.btn-outline-danger.disabled, .btn-outline-danger:disabled {
+    background-color: transparent;
+    border-color: #f93154
+}
+
+.btn-outline-dark {
+    display:inline-block;
+    color:#262626;
+    text-align:center;
+    text-decoration:none;
+    vertical-align:middle;
+    cursor:pointer;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    background-color:transparent;
+    border:.125rem solid #262626;
+    padding:.375rem .75rem;
+    border-radius:.25rem;
+    -webkit-transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out
+}
+
+.btn-outline-dark:hover {
+    color: #FFF;
+    background-color: #262626;
+    border-color: #262626
+}
+
+btn-check:active + .btn-outline-dark, .btn-check:checked + .btn-outline-dark, .btn-outline-dark.active, .btn-outline-dark.dropdown-toggle.show, .btn-outline-dark:active {
+    color: #FFF;
+    background-color: #262626;
+    border-color: #262626
+}
+
+.btn-outline-dark.disabled, .btn-outline-dark:disabled {
+    background-color: transparent;
+    border-color: #262626
+}
+
+.btn-outline-pink {
+    display:inline-block;
+    color:#d63384;
+    text-align:center;
+    text-decoration:none;
+    vertical-align:middle;
+    cursor:pointer;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    background-color:transparent;
+    border:.125rem solid #d63384;
+    padding:.375rem .75rem;
+    border-radius:.25rem;
+    -webkit-transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out
+}
+
+.btn-outline-pink:hover {
+    color: #000;
+    background-color: #d63384;
+    border-color: #d63384
+}
+
+.btn-check:active + .btn-outline-pink, .btn-check:checked + .btn-outline-pink, .btn-outline-pink.active, .btn-outline-pink.dropdown-toggle.show, .btn-outline-pink:active {
+    color: #000;
+    background-color: #d63384;
+    border-color: #d63384
+}
+
+.btn-outline-pink.disabled, .btn-outline-pink:disabled {
+    background-color: transparent;
+    border-color: #d63384
+}
+
+.placeholder {
+    position: relative;
+}
+
+.placeholder::after {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    content: attr(data-placeholder);
+    pointer-events: none;
+    opacity: 0.6;
+}

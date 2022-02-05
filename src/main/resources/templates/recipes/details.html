@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<header>
+    <nav th:replace="fragments/navbar :: nav"></nav>
+</header>
+<!--Main layout-->
+<main>
+    <div class="container">
+        <section class="mt-3">
+            <div class="row">
+                <div class="col-md-6 gx-5 mb-4">
+                    <div class="bg-image shadow-2-strong rounded-5" data-mdb-ripple-color="light">
+                        <img src="/images/recipeImage.jpg" class="img-fluid">
+                    </div>
+                    <div style="margin-top: 20px">
+                        <a th:if="${user.getFavoriteRecipesIds().contains(recipe.recipeID)}"
+                           class="btn btn-outline-pink"
+                           th:href="@{/recipes/unfavorite(recipeID=${recipe.recipeID})}"
+                        >
+                            <i class="fas fa-heart"></i>
+                            Remove from favorites
+                        </a>
+                        <a th:unless="${user.getFavoriteRecipesIds().contains(recipe.recipeID)}"
+                           class="btn btn-outline-pink"
+                           th:href="@{/recipes/favorite(recipeID=${recipe.recipeID})}"
+                        >
+                            <i class="far fa-heart"></i>
+                            Add to favorites
+                        </a>
+
+                        <a class="btn btn-outline-primary"
+                           th:href="@{/recipes/update(recipeID=${recipe.recipeID})}"
+                        >
+                            <i class="fas fa-pencil-alt"></i>
+                            Edit Recipe
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 gx-5 mb-4">
+                    <!-- RECIPE TITLE HERE -->
+                    <h2><strong th:text="${recipe.recipeTitle}"></strong></h2>
+                    <!-- RECIPE AUTHOR HERE -->
+                    <div class="d-flex mb-3">
+                        <img src="/images/user-avatar.jpg" class="rounded-circle" height="25" alt="" loading="lazy"/>
+                        <div class="d-flex align-items-center w-100 ps-3">
+                            <div class="w-100">
+                                <span th:text="${recipe.getAuthorName()}" class="mb-0 text-success"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- RECIPE DESCRIPTION HERE -->
+                    <p><strong>Description: </strong><span class="text-muted" th:text="${recipe.recipeDescription}"></span></p>
+                    <!-- RECIPE PREP TIME HERE -->
+                    <p><strong>Preparation Time: </strong><span th:text="${recipe.prepTime &gt; '0' ? recipe.prepTime + ' minute(s)' : 'No Prep Time Required!'}"></span></p>
+                    <!-- RECIPE COOK TIME HERE -->
+                    <p><strong>Cooking Time: </strong><span th:text="${recipe.cookTime &gt; '0' ? recipe.cookTime + ' minute(s)' : 'No Cook Time Required!'}"></span></p>
+                    <!-- RECIPE INGREDIENTS HERE -->
+                    <p>
+                        <div th:if="${message}">
+                            <span class="text-danger" th:text="${message}"></span>
+                        </div>
+                        <strong>Ingredients: </strong>
+                        <a th:href="@{/user/addToShoppingList(ingredientId=${ingredient.getIngredientId()}, recipeID=${recipe.getRecipeID()})}" class="badge badge-pill badge-dark" style="margin-right: 5px" th:each="ingredient : ${recipe.recipeIngredients}">
+                            <span style="font-size: 15px; margin-right: 5px" th:text="${ingredient.getTitle()}"></span>
+                            <i class="fas fa-cart-plus"></i>
+                        </a>
+                    </p>
+                    <!-- RECIPE INSTRUCTIONS HERE -->
+                    <p><strong>Instructions: </strong><span th:text="${recipe.instructions }"></span></p>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+<!--Main layout-->
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

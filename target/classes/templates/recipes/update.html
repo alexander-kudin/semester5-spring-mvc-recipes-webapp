@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<header>
+    <nav th:replace="fragments/navbar :: nav"></nav>
+</header>
+
+<!--Main layout-->
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="p-5 text-center bg-light">
+                <!-- PAGE TITLE HERE -->
+                <h1>Update Recipe</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="shadow-5 p-4">
+                <form method="post" enctype="multipart/form-data">
+                    <!-- Recipe Title -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <input th:value="${recipe.recipeTitle}" type="text" id="title" name="title" class="form-control" required>
+                                <label class="form-label ml-0" for="title">Recipe Title</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recipe Description input -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <input th:value="${recipe.recipeDescription}" type="text" id="description" name="description" class="form-control">
+                                <label class="form-label ml-0" for="description">Recipe Description</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prep & Cook Times -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline placeholder" data-placeholder="/minutes">
+                                <input th:value="${recipe.prepTime}" type="text" id="prepTime" name="prepTime" class="form-control" required pattern="[0-9\.]+">
+                                <label class="form-label ml-0" for="prepTime">Preparation Time</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-outline placeholder" data-placeholder="/minutes">
+                                <input th:value="${recipe.cookTime}" type="text" id="cookTime" name="cookTime" class="form-control" required pattern="[0-9\.]+">
+                                <label class="form-label ml-0" for="cookTime">Cook Time</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ingredients input -->
+                    <div class="row mb-4">
+                        <div class="col" id="ingredientsContainer">
+                            <div class="form-outline input-group mt-2" th:each="ingredient : ${recipe.recipeIngredients}" th:id="${'oldIngredient' + ingredient.getIngredientId()}">
+                                <input type="text" th:id="${'ingredient' + ingredient.getIngredientId()}" th:value="${ingredient.getTitle()}" name="strIngredients" class="form-control">
+                                <label class="form-label ml-0" th:for="${'ingredient' + ingredient.getIngredientId()}">Ingredient</label>
+                                <div class="input-group-append">
+                                    <button th:attr="onclick=|removeIngredient('${ingredient.getIngredientId()}', 'oldIngredient')|"  class="btn btn-outline-secondary" type="button">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <button type="button" onclick="addIngredient()" class="btn btn-outline-primary">Add Ingredient</button>
+                        </div>
+                    </div>
+
+                    <!-- Instructions input -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div id="stepsContainer">
+                                <div class="form-outline">
+                                    <textarea th:text="${recipe.instructions}" class="form-control" id="step1" name="strInstructions" rows="2" spellcheck="false"></textarea>
+                                    <label class="form-label ml-0" for="step1">Step 1</label>
+                                </div>
+                            </div>
+                            <button type="button" onclick="addStep()" class="btn btn-outline-primary mb-4 mt-3">Add Step</button>
+                        </div>
+                    </div>
+
+                    <!-- Add Recipe button -->
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Update Recipe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<!--Main layout-->
+<footer th:replace="fragments/footer :: footer"></footer>
+<script type='text/javascript'>
+    let stepCount = 1;
+    let ingredientCount = 1;
+    function addStep(){
+        let stepsContainer = document.getElementById("stepsContainer");
+        stepCount += 1;
+        let newContainer = document.createElement("div");
+        newContainer.id = "step" + stepCount;
+        newContainer.className="form-outline mt-2";
+        stepsContainer.appendChild(newContainer)
+        let newStep = document.createElement("textarea");
+        let newLabel = document.createElement("label");
+        newStep.className="form-control"; newStep.id = "step" + stepCount; newStep.name = "strInstructions"; newStep.rows = 2; newStep.spellcheck = false;
+        newLabel.className="form-label ml-0"; newLabel.htmlFor= "step" + stepCount; newLabel.innerHTML = "Step" + stepCount;
+        newContainer.appendChild(newStep);
+        newContainer.appendChild(newLabel);
+
+        let notch = document.createElement("div");
+        notch.className="form-notch";
+        newContainer.appendChild(notch);
+        let notchLeading = document.createElement("div");
+        notchLeading.className="form-notch-leading";
+        let notchMiddle = document.createElement("div");
+        notchMiddle.className = "form-notch-middle";
+        let notchTrailing = document.createElement("div");
+        notchTrailing.className = "form-notch-trailing";
+        notch.appendChild(notchLeading);
+        notch.appendChild(notchMiddle);
+        notch.appendChild(notchTrailing);
+    }
+
+    function addIngredient(){
+        let ingredientsContainer = document.getElementById("ingredientsContainer");
+        ingredientCount++;
+        let newContainer = document.createElement("div");
+        newContainer.id = "ingredient" + ingredientCount;
+        newContainer.className="form-outline input-group mt-2";
+        ingredientsContainer.appendChild(newContainer)
+        let newIngredientInput = document.createElement("input");
+        let newLabel = document.createElement("label");
+        newIngredientInput.className="form-control"; newIngredientInput.id = "ingredient" + ingredientCount; newIngredientInput.name = "strIngredients"; newIngredientInput.type = "text";
+        newLabel.className="form-label ml-0"; newLabel.htmlFor= "ingredient" + ingredientCount; newLabel.innerHTML = "Ingredient";
+        let inputAppend = document.createElement("div");
+        inputAppend.className="input-group-append";
+        let removeIngButton = document.createElement("button");
+        removeIngButton.className = "btn btn-outline-secondary"; removeIngButton.type = "button"; removeIngButton.innerHTML= "Remove";
+        removeIngButton.onclick = () => removeIngredient(newContainer.id);
+        inputAppend.appendChild(removeIngButton);
+        newContainer.appendChild(newIngredientInput);
+        newContainer.appendChild(newLabel);
+        newContainer.appendChild(inputAppend);
+
+        let notch = document.createElement("div");
+        notch.className="form-notch";
+        newContainer.appendChild(notch);
+        let notchLeading = document.createElement("div");
+        notchLeading.className="form-notch-leading";
+        notchLeading.style.width = "9px";
+        let notchMiddle = document.createElement("div");
+        notchMiddle.className = "form-notch-middle";
+        notchMiddle.style.width = "75.2px"
+        let notchTrailing = document.createElement("div");
+        notchTrailing.className = "form-notch-trailing";
+        notch.appendChild(notchLeading);
+        notch.appendChild(notchMiddle);
+        notch.appendChild(notchTrailing);
+    }
+    function removeStep(elementId){
+        let container = document.getElementById("stepsContainer");
+        container.removeChild(document.getElementById(elementId));
+    }
+    function removeIngredient(elementId, elementPrefix = ""){
+        elementId = elementPrefix + elementId;
+        let container = document.getElementById("ingredientsContainer");
+        container.removeChild(document.getElementById(elementId));
+    }
+</script>
+</body>
+</html>
+

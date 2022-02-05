@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<header>
+    <nav th:replace="fragments/navbar :: nav"></nav>
+</header>
+<!--Main layout-->
+<main>
+    <div class="container">
+
+        <!-- Dashboard Header -->
+        <div class="row">
+            <div class="mt-4 mb-3 p-3 text-center bg-light weirdBlue rounded">
+                <h1>Dashboard</h1>
+            </div>
+        </div>
+
+        <!-- Recipe Options -->
+        <div class="row">
+            <div class="p-4 text-center">
+                <h4 class="text-center mb-3">Recipe Options</h4>
+                <a href="/recipes" class="col-md-3 btn btn-outline-primary">View All Recipes</a>
+                <a href="/recipes/search" class="col-md-3 btn btn-outline-primary">Search Recipes</a>
+                <a href="/recipes/create" class="col-md-3 btn btn-outline-primary">Create a Recipe</a>
+            </div>
+        </div>
+
+        <!-- Meal Planner Options -->
+        <div class="row">
+            <div class="p-4 text-center">
+                <h4 class="text-center mb-3">Meal Planner Options</h4>
+                <a href="/planner" class="col-md-3 btn btn-outline-primary">View Meal Planner</a>
+                <a href="/planner/create" class="col-md-3 btn btn-outline-primary">Create Meal</a>
+            </div>
+        </div>
+
+        <!-- Event Planner Options -->
+        <div class="row">
+            <div class="p-4 text-center">
+                <h4 class="text-center mb-3">Event Planner Options</h4>
+                <a href="/events" class="col-md-3 btn btn-outline-primary">View Event Planner</a>
+                <a href="/events/create" class="col-md-3 btn btn-outline-primary">Crete Event</a>
+            </div>
+        </div>
+
+        <!-- Profile Options -->
+        <div class="row">
+            <div class="p-4 text-center">
+                <h4 class="text-center mb-3">Profile Options</h4>
+                <a href="/user/profile" class="col-md-3 btn btn-outline-primary">View Profile Details</a>
+                <a href="/user/update" class="col-md-3 btn btn-outline-primary">Edit Profile Details</a>
+                <a href="/user/logout" class="col-md-3 btn btn-outline-danger">Log Out</a>
+            </div>
+        </div>
+
+    </div>
+</main>
+<!--Main layout-->
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

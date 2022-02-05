@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<header>
+    <nav th:replace="fragments/navbar :: nav"></nav>
+</header>
+<!--Main layout-->
+<main>
+    <div class="container">
+
+        <!-- Search Recipes Header -->
+        <div class="row">
+            <div class="mt-4 mb-3 p-3 text-center bg-light weirdBlue rounded">
+                <h1>Search Recipes</h1>
+            </div>
+        </div>
+
+        <!-- PAGE CONTENT STARTS HERE -->
+        <div class="pl-5 pr-5 pt-3 pb-3">
+            <h4>Text Search</h4>
+            <div class="row">
+                <div class="p-4">
+                    <form method="get">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-outline">
+                                    <input type="text" id="keywords" name="keywords" class="form-control">
+                                    <label class="form-label ml-0" for="keywords">Keywords</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3 ms-auto">
+                                <div>
+                                    <button type="submit" class="btn btn-primary btn-block mb-4">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row recipeCards">
+            <!-- SECTION TITLE HERE -->
+            <div th:if= "${#httpServletRequest.getParameter('keywords') != null}" class="mb-3">
+                <h4 class="mb-3 text-center">Search Results</h4>
+            </div>
+            <!-- SECTION CONTENT HERE -->
+            <div th:replace="fragments/recipeList :: div"></div>
+        </div>
+        <!-- PAGE CONTENT ENDS HERE -->
+    </div>
+</main>
+<!--Main layout-->
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>
