@@ -12,6 +12,8 @@
     </parent>
 
     <properties>
+        <!-- The main class to start by executing java -jar -->
+        <start-class>com.comp3095.recipe_project.Application</start-class>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <java.version>11</java.version>
@@ -76,17 +78,11 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
-
         <!--Spring CSV EXPORT-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-csv</artifactId>
-            <version>1.8</version>
+            <version>1.9</version>
         </dependency>
 
     </dependencies>
